@@ -127,8 +127,9 @@ export const people: Person[] = [
         id: "huseyin-cuhaci",
         name: "Hüseyin Çuhacı",
         nickname: "cile",
+        birthYear: 1980,
         role: "Baba",
-        location: "Sinop",
+        location: "İstanbul",
         parentIds: ["mehmet-cuhaci-dede", "hava-turkmen"],
         spouseIds: ["habibe-demir"],
         childIds: [
@@ -137,7 +138,51 @@ export const people: Person[] = [
             "semanur-cuhaci",
         ],
         biography:
-            "Mehmet Çuhacı ve Hava Türkmen'in çocuğudur. Habibe Demir ile evlenmiştir.",
+            "Mehmet Çuhacı ve Hava Türkmen'in çocuğudur. Habibe Demir ile evlenmiştir. 3 çocuk babasıdır.",
+        timeline: [
+            {
+                year: "1980",
+                type: "Doğum",
+                title: "Sinop'ta  Dünyaya geldi",
+                description: "Hüseyin Çuhacı dünyaya geldi.",
+                location: "Sinop",
+            },
+            {
+                year: "1990",
+                type: "Eğitim",
+                title: "Boyabat İmam Hatip Lisesi'nde Okudu",
+                description: "Lise eğitimini tamamladı.",
+                location: "Sinop",
+            },
+            {
+                year: "2003",
+                type: "Evlilik",
+                title: "İStanbul'da Evlenme",
+                description: "Habibe Demir ile evlendiler.",
+                location: "İstanbul",
+            },
+            {
+                year: "2004",
+                type: "Çocuk",
+                title: "İlk çocuk",
+                description: "Gözünün nuru, bitanesi, ilk  çocuğu dünyaya geldi",
+                location: "İstanbul",
+            },
+            {
+                year: "2006",
+                type: "Çocuk",
+                title: "İkinci çocuk",
+                description: "Mehmet Çuhacı dünyaya geldi.",
+                location: "İstanbul",
+            },
+            {
+                year: "2010",
+                type: "Çocuk",
+                title: "Üçüncü çocuk",
+                description: "Semanur Çuhacı dünyaya geldi.",
+                location: "İstanbul",
+            }
+        ],
     },
     {
         id: "birsen-yaman",
@@ -202,16 +247,51 @@ export const people: Person[] = [
         parentIds: ["huseyin-cuhaci", "habibe-demir"],
         biography:
             "Hüseyin Çuhacı ve Habibe Demir'in çocuklarından biridir.",
+        timeline: [
+            {
+                year: "2004",
+                title: "Doğum",
+                description: "Ravza Nur Çuhacı dünyaya geldi.",
+                location: "Sinop",
+            },
+            {
+                year: "2026",
+                title: "Eğitim",
+                description: "Bilgisayar mühendisliği bölümünü bitirdi.",
+                location: "Düzce Üniversitesi",
+            },
+        ],
     },
     {
         id: "mehmet-cuhaci-cocuk",
         name: "Mehmet Çuhacı",
         nickname: "cile",
         role: "Çocuk",
-        location: "Sinop",
+        location: "İstanbul",
+        birthYear: 2006,
         parentIds: ["huseyin-cuhaci", "habibe-demir"],
+        image: "/mehmet-cuhaci.jpeg",
         biography:
             "Hüseyin Çuhacı ve Habibe Demir'in çocuklarından biridir.",
+        timeline: [
+            {
+                year: "2006",
+                type: "Doğum",
+                title: "İstanbulda Dünayaya geldi",
+                description: "Mehmet Çuhacı dünyaya geldi.",
+                location: "Üsküdar",
+            },
+
+            {
+                year: "2026",
+                type: "Eğitim",
+                title: "Üsküdar Üniversitesinde Okudu",
+                description: "İlk ve Acil Yardım bölümünü bitirdi.",
+                location: "Üsküdar Üniversitesi",
+            },
+
+
+        ],
     },
     {
         id: "semanur-cuhaci",

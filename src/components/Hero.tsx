@@ -6,7 +6,7 @@ function Hero() {
             <div className="hero-content">
                 <span className="hero-label">Sinop / Boyabat</span>
 
-                <h1>Çile Soyu</h1>
+                <h1>Cile Soyu</h1>
 
                 <p>
                     Çuhacı ailesinin kuşaklar boyunca aktarılan aile bağlarını,
@@ -20,10 +20,13 @@ function Hero() {
                 </div>
             </div>
 
+
             <div className="hero-visual">
-                <div className="hero-circle">🌳</div>
+                <div className="hero-circle">
+                    <img src="/fmm.jpeg" alt="Mehmet Çuhacı" />
+                </div>
             </div>
-        </section>
+        </section >
     );
 }
 

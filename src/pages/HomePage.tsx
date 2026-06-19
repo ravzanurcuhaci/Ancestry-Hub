@@ -11,7 +11,7 @@ function HomePage() {
                 <h2>Sinop Boyabat’tan Gelen Bir Aile Hikayesi</h2>
 
                 <p>
-                    Bu sayfa, Çile lakabıyla bilinen Çuhacı ailesinin kuşaklar arası
+                    Bu sayfa, Cile lakabıyla bilinen Çuhacı ailesinin kuşaklar arası
                     bağlarını korumak ve aile bireylerini tek bir soy ağacı üzerinde
                     göstermek için hazırlanmıştır.
                 </p>

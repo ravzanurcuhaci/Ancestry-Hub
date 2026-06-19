@@ -4,7 +4,7 @@ function Navbar() {
     return (
         <header className="navbar">
             <Link to="/" className="navbar-logo">
-                CİLE AĞACI
+                CİLENİN SOYU
             </Link>
         </header>
     );

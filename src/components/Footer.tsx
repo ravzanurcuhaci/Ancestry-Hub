@@ -1,7 +1,7 @@
 function Footer() {
     return (
         <footer className="footer">
-            <p>© 2025 AncestryHub</p>
+            <p>© Çuhacı Ailesi</p>
         </footer>
     );
 }

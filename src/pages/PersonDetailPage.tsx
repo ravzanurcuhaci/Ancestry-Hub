@@ -1,10 +1,31 @@
 import { Link, useParams } from "react-router-dom";
 import { people } from "../data/people";
+import RelationGroup from "../components/RelationGroup";
 
 function PersonDetailPage() {
     const { id } = useParams();
 
     const person = people.find((person) => person.id === id);
+    const parents = people.filter((p) =>
+        person.parentIds?.includes(p.id)
+    );
+
+    const spouses = people.filter((p) =>
+        person.spouseIds?.includes(p.id)
+    );
+
+    const children = person.childIds
+        ? people.filter((p) => person.childIds?.includes(p.id))
+        : people.filter((p) => p.parentIds?.includes(person.id));
+
+    const siblings = people.filter((p) => {
+        if (p.id === person.id) return false;
+        if (!person.parentIds) return false;
+
+        return p.parentIds?.some((parentId) =>
+            person.parentIds?.includes(parentId)
+        );
+    });
 
     if (!person) {
         return (
@@ -66,10 +87,21 @@ function PersonDetailPage() {
 
                     <div className="timeline">
                         {person.timeline?.map((item) => (
-                            <article key={`${person.id}-${item.year}-${item.title}`} className="timeline-card">
-                                <span>{item.year}</span>
-                                <h3>{item.title}</h3>
-                                <p>{item.description}</p>
+                            <article
+                                key={`${person.id}-${item.year}-${item.title}`}
+                                className="timeline-card"
+                            >
+                                <span className="timeline-meta">
+                                    {item.year} • {item.type}
+                                </span>
+
+                                <h3 className="timeline-title">
+                                    {item.title}
+                                </h3>
+
+                                <p className="timeline-description">
+                                    {item.description}
+                                </p>
                             </article>
                         ))}
                     </div>
@@ -78,11 +110,12 @@ function PersonDetailPage() {
                 <aside className="family-box">
                     <h2>Aile Bağlantıları</h2>
 
-                    <p>
-                        Bu alana ileride anne, baba, eş, çocuk ve kardeş bilgileri eklenecek.
-                    </p>
+                    <RelationGroup title="Ebeveynler" people={parents} />
+                    <RelationGroup title="Eş" people={spouses} />
+                    <RelationGroup title="Çocuklar" people={children} />
+                    <RelationGroup title="Kardeşler" people={siblings} />
 
-                    <Link to="/tree" className="tree-button">
+                    <Link to={`/tree?focus=${person.id}`} className="tree-button">
                         Soy ağacında gör
                     </Link>
                 </aside>
