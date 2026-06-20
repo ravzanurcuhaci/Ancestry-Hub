@@ -6,6 +6,22 @@ function PersonDetailPage() {
     const { id } = useParams();
 
     const person = people.find((person) => person.id === id);
+
+    if (!person) {
+        return (
+            <main className="person-detail-page">
+                <section className="not-found">
+                    <h1>Kişi bulunamadı</h1>
+                    <p>Aradığınız kişi kayıtlarda yer almıyor.</p>
+
+                    <Link to="/" className="back-button">
+                        Ana sayfaya dön
+                    </Link>
+                </section>
+            </main>
+        );
+    }
+
     const parents = people.filter((p) =>
         person.parentIds?.includes(p.id)
     );
@@ -27,20 +43,7 @@ function PersonDetailPage() {
         );
     });
 
-    if (!person) {
-        return (
-            <main className="person-detail-page">
-                <section className="not-found">
-                    <h1>Kişi bulunamadı</h1>
-                    <p>Aradığınız kişi kayıtlarda yer almıyor.</p>
 
-                    <Link to="/" className="back-button">
-                        Ana sayfaya dön
-                    </Link>
-                </section>
-            </main>
-        );
-    }
 
     return (
         <main className="person-detail-page">
