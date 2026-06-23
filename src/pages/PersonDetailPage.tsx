@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import { people } from "../data/people";
 import RelationGroup from "../components/RelationGroup";
 
@@ -48,13 +49,19 @@ function PersonDetailPage() {
     return (
         <main className="person-detail-page">
             <section className="person-hero">
-                <div className="person-photo">
+                <motion.div
+                    className="person-photo"
+                    initial={{ scale: 0.96, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ duration: 0.28 }}
+                >
                     {person.image ? (
                         <img src={person.image} alt={person.name} />
                     ) : (
                         <span>{person.name.charAt(0)}</span>
                     )}
-                </div>
+                </motion.div>
 
                 <div className="person-info">
                     <span className="person-role">{person.role}</span>
