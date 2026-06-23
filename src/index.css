@@ -258,17 +258,21 @@ button {
   background-color: #fffaf3;
   border: 1px solid #e4d6c3;
   box-shadow: 0 16px 40px rgba(31, 27, 22, 0.08);
+  align-items: start;
 }
 
+
+
 .person-photo {
-  width: 100%;
-  min-height: 320px;
+  width: 280px;
+  height: 280px;
   border-radius: 20px;
   background-color: #143c2f;
   color: white;
   display: grid;
   place-items: center;
   overflow: hidden;
+  align-self: start;
 }
 
 .person-photo span {
@@ -402,7 +406,10 @@ button {
     padding: 32px 24px;
   }
 
-  .person-hero,
+  .person-hero {
+    grid-template-columns: 1fr;
+  }
+
   .person-content {
     grid-template-columns: 1fr;
   }
@@ -412,9 +419,12 @@ button {
   }
 
   .person-photo {
-    min-height: 240px;
+    width: 220px;
+    height: 220px;
   }
 }
+
+
 
 
 

@@ -44,6 +44,7 @@ function createPersonNode(
 }
 
 const nodes: FamilyPersonNodeType[] = [
+    createPersonNode("hasan-cuhaci-dede", 250, -220),
     createPersonNode("sukru-cuhaci", 250, 0),
     createPersonNode("melek-cuhaci", 550, 0),
 
@@ -67,6 +68,15 @@ const nodes: FamilyPersonNodeType[] = [
 ];
 
 const edges: Edge[] = [
+    {
+        id: "hasan-dede-sukru",
+        source: "hasan-cuhaci-dede",
+        sourceHandle: "bottom",
+        target: "sukru-cuhaci",
+        targetHandle: "top",
+        type: "smoothstep",
+    },
+
     {
         id: "sukru-melek",
         source: "sukru-cuhaci",

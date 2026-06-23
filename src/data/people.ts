@@ -1,6 +1,130 @@
 import type { Person } from "../types/person";
 
 export const people: Person[] = [
+
+    {
+        id: "hasan-cuhaci-dede",
+        name: "Hasan Çuhacı",
+        nickname: "cile",
+        birthYear: 1800,
+        role: "Büyük Dede",
+        location: "Asarcık Hacı Köyü / Sinop",
+        childIds: ["sukru-cuhaci"],
+        biography: `Cile lakabı, “çok çile çekmiş” anlamında kullanılmıştır. Asarcık Hacı Köyü’ne 1800’lü yılların başlarında yerleşen ilk kabilelerden biri bu lakapla anılmıştır. Asıl adı Hasan’dır.
+
+Hasan’ın yine Hasan adında bir oğlu olmuştur. Oğlunun doğumuna çok sevinen Hasan, bir gün kışlık yakacak getirmek için öküzleri koşarak oğlu Hasan ile birlikte köyün dağına, Sazak mevkisine gitmiştir. Burada gözüne kestirdiği bir çam ağacını keserken ağaç üzerine devrilmiş ve oracıkta hayatını kaybetmiştir.
+
+Akşam olduğunda hava kararmaya başlamış, öküzler boyunduruklu şekilde köye dönmüş, ancak sahipleri dönmemiştir. Köy halkı “Öküzler geldi, sahibi gelmedi” diyerek aramaya çıkmıştır. Sazak mevkisine vardıklarında Çuhadar’ın oğlu “Babam uyuyor, uyuyor” diye seslenmiştir. Köy halkı yanına vardığında Çuhadar’ın ağacın altında kalarak hayatını kaybettiğini görmüştür.
+
+Çuhadar’ın oğlu Hasan yetim olarak büyümüştür. Evlenmiş, ilk hanımından 3 kızı ve 1 oğlu olmuştur. Kızlarının isimleri …………….. evlenmiş … İkinci evliliğinden Şükrü adında bir oğlu olmuştur.
+
+İlk evliliğinden olan oğlu Yemen’e askere gitmiştir. Çok yıllar sonra döndüğünde Boyabat Orta Çarşı’da babası tütün satarken tesadüfen yanına gelmiştir. “Dayı, bu tütünler bizim arpalığın tütününe benziyor” diyerek sohbete başlamıştır. Birbirini tanımayan baba oğul, konuşma sırasında birbirlerini tanımış ve sarmaş dolaş köyün yolunu tutmuştur.
+
+Köye geldiklerinde Hasan, “Oğlum askerden geldi, kavuştuk” diyerek öküzlerinden birini oğlu için kesmiş ve köy halkına dağıtmıştır. Ancak oğlu köyde yalnızca üç gün yaşayabilmiş ve babasından önce vefat etmiştir.
+
+İkinci evliliğinden olan Şükrü ise babasını çok küçükken kaybetmiştir. Üvey ablalarının yanında kalarak büyümüştür.
+
+Cile lakabı halk türkülerinde ve sözlü kültürde de çile, hasret ve dert anlamlarıyla anılmıştır. Bu lakap, hem yaşanmış zorlukları hem de kuşaktan kuşağa aktarılan hatıraları temsil eder.
+
+Cile ile ilgili türküler:
+1. Onu sevmek binbir çile / Şu salınıp gelen güzel
+2. Çile bülbülüm çile
+3. Kimi candan sevdim ise tuz ekti yarama benim / Bu ne bitmez tükenmez çileymiş`,
+        timeline: [
+            {
+                year: "1800",
+                type: "Yerleşim",
+                title: "Asarcık Hacı Köyü’ne yerleşim",
+                description:
+                    "Cile lakaplı Hasan, 1800’lü yılların başlarında Asarcık Hacı Köyü’ne yerleşen ilk aile büyüklerinden biridir.",
+                location: "Asarcık Hacı Köyü",
+            },
+            {
+                year: "1800",
+                type: "Lakabın Kökeni",
+                title: "Cile lakabının ortaya çıkışı",
+                description:
+                    "Cile lakabı, çok çile çekmiş anlamında kullanılmıştır. Bu lakap aile büyüğü Hasan ile anılmıştır.",
+            },
+            {
+                year: "1800",
+                type: "Aile",
+                title: "Hasan adında oğlunun doğumu",
+                description:
+                    "Hasan’ın, yine Hasan adında bir oğlu olmuştur. Oğlunun doğumuna çok sevinmiştir.",
+            },
+            {
+                year: "1800",
+                type: "Vefat",
+                title: "Sazak mevkisinde vefatı",
+                description:
+                    "Kışlık yakacak getirmek için oğlu Hasan ile Sazak mevkisine giden Hasan, çam ağacı keserken ağacın üzerine devrilmesi sonucu hayatını kaybetmiştir.",
+                location: "Sazak Mevkisi",
+            },
+            {
+                year: "1800",
+                type: "Aile Hatırası",
+                title: "Öküzlerin köye dönüşü",
+                description:
+                    "Akşam olduğunda öküzler boyunduruklu şekilde köye dönmüş, köy halkı Hasan’ı aramaya çıkmış ve onu Sazak mevkisinde ağacın altında bulmuştur.",
+                location: "Asarcık Hacı Köyü",
+            },
+            {
+                year: "1800",
+                type: "Aile",
+                title: "Hasan’ın oğlunun yetim kalması",
+                description:
+                    "Hasan’ın oğlu küçük yaşta yetim kalmıştır. Daha sonra evlenmiş, ilk hanımından 3 kızı ve 1 oğlu, ikinci evliliğinden ise Şükrü adında bir oğlu olmuştur.",
+            },
+            {
+                year: "1900",
+                type: "Askerlik",
+                title: "Yemen’den dönen oğul",
+                description:
+                    "İlk evliliğinden olan oğlu Yemen’e askere gitmiştir. Çok yıllar sonra döndüğünde Boyabat Orta Çarşı’da babasıyla tesadüfen karşılaşmıştır.",
+                location: "Boyabat Orta Çarşı",
+            },
+            {
+                year: "1900",
+                type: "Kavuşma",
+                title: "Baba oğlun kavuşması",
+                description:
+                    "Tütün satışı sırasında konuşmaya başlayan baba oğul birbirlerini tanımış ve sarmaş dolaş köyün yolunu tutmuştur.",
+                location: "Boyabat / Asarcık Hacı Köyü",
+            },
+            {
+                year: "1900",
+                type: "Aile Hatırası",
+                title: "Askerden dönen oğul için öküz kesilmesi",
+                description:
+                    "Hasan, oğlunun askerden dönmesine sevinerek öküzlerinden birini kesmiş ve köy halkına dağıtmıştır.",
+                location: "Asarcık Hacı Köyü",
+            },
+            {
+                year: "1900",
+                type: "Vefat",
+                title: "Askerden dönen oğlun vefatı",
+                description:
+                    "Askerden dönen oğlu, köyde yalnızca üç gün yaşamış ve babasından önce vefat etmiştir.",
+            },
+            {
+                year: "1900",
+                type: "Aile",
+                title: "Şükrü Çuhacı’nın küçük yaşta babasını kaybetmesi",
+                description:
+                    "İkinci evliliğinden olan Şükrü, babasını çok küçükken kaybetmiş ve üvey ablalarının yanında kalarak büyümüştür.",
+            },
+            {
+                year: "Kültürel Hatıra",
+                type: "Türküler",
+                title: "Cile ile ilgili türküler",
+                description:
+                    "Cile lakabı; çile, hasret ve dert temalı türkülerle de anılır. Örnekler: “Onu sevmek binbir çile”, “Çile bülbülüm çile”, “Kimi candan sevdim ise tuz ekti yarama benim, bu ne bitmez tükenmez çileymiş.”",
+            },
+        ],
+    }
+    ,
+
     {
         id: "sukru-cuhaci",
         name: "Şükrü Çuhacı",
@@ -9,6 +133,7 @@ export const people: Person[] = [
         deathYear: 1100,
         role: "Büyük Dede",
         location: "Sinop",
+        parentIds: ["hasan-cuhaci-dede"],
         spouseIds: ["melek-cuhaci"],
         childIds: ["mehmet-cuhaci-dede"],
         biography:
@@ -28,7 +153,7 @@ export const people: Person[] = [
     },
     {
         id: "melek-cuhaci",
-        name: "Melek Çuhacı",
+        name: "Melek Taşçı Çuhacı",
         nickname: "cile",
         birthYear: 1760,
         deathYear: 1800,
