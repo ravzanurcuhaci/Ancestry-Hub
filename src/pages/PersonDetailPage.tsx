@@ -1,33 +1,10 @@
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useFamilyData } from "../context/FamilyDataContext";
+import { people } from "../data/people";
 import RelationGroup from "../components/RelationGroup";
 
 function PersonDetailPage() {
     const { id } = useParams();
-    const { people, loading, error } = useFamilyData();
-
-    if (loading && people.length === 0) {
-        return (
-            <main className="person-detail-page">
-                <section className="not-found">
-                    <h1>Yükleniyor...</h1>
-                    <p>Kişi detayları yükleniyor...</p>
-                </section>
-            </main>
-        );
-    }
-
-    if (error && people.length === 0) {
-        return (
-            <main className="person-detail-page">
-                <section className="not-found">
-                    <h1 style={{ color: "#e74c3c" }}>Hata</h1>
-                    <p>Veriler yüklenirken hata oluştu: {error.message}</p>
-                </section>
-            </main>
-        );
-    }
 
     const person = people.find((person) => person.id === id);
 
