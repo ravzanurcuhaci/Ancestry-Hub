@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import {
     ReactFlow,
     Background,
@@ -8,7 +9,7 @@ import {
 
 import "@xyflow/react/dist/style.css";
 
-import { people } from "../data/people";
+import { useFamilyData } from "../context/FamilyDataContext";
 import FamilyPersonNode, {
     type FamilyPersonNodeType,
 } from "../components/FamilyPersonNode";
@@ -18,56 +19,7 @@ const nodeTypes = {
     familyPerson: FamilyPersonNode,
 };
 
-function getPerson(id: string): Person {
-    const person = people.find((person) => person.id === id);
-
-    if (!person) {
-        throw new Error(`${id} bulunamadı`);
-    }
-
-    return person;
-}
-
-function createPersonNode(
-    id: string,
-    x: number,
-    y: number
-): FamilyPersonNodeType {
-    return {
-        id,
-        type: "familyPerson",
-        position: { x, y },
-        data: {
-            person: getPerson(id),
-        },
-    };
-}
-
-const nodes: FamilyPersonNodeType[] = [
-    createPersonNode("hasan-cuhaci-dede", 250, -220),
-    createPersonNode("sukru-cuhaci", 250, 0),
-    createPersonNode("melek-cuhaci", 550, 0),
-
-    createPersonNode("mehmet-cuhaci-dede", 400, 220),
-    createPersonNode("hava-turkmen", 700, 220),
-
-    createPersonNode("kezban-cuhaci", 0, 460),
-    createPersonNode("hasan-cuhaci", 280, 460),
-    createPersonNode("birsen-yaman", 520, 460),
-    createPersonNode("kevser-cuhaci", 760, 460),
-    createPersonNode("huseyin-cuhaci", 1040, 460),
-    createPersonNode("habibe-demir", 1280, 460),
-
-    createPersonNode("burak-cuhaci", 160, 720),
-    createPersonNode("beyza-cuhaci", 360, 720),
-    createPersonNode("sena-cuhaci", 560, 720),
-
-    createPersonNode("ravza-nur-cuhaci", 920, 720),
-    createPersonNode("mehmet-cuhaci-cocuk", 1120, 720),
-    createPersonNode("semanur-cuhaci", 1320, 720),
-];
-
-const edges: Edge[] = [
+const staticEdges: Edge[] = [
     {
         id: "hasan-dede-sukru",
         source: "hasan-cuhaci-dede",
@@ -299,6 +251,85 @@ const defaultEdgeOptions = {
 };
 
 function FamilyTreePage() {
+    const { people, loading, error } = useFamilyData();
+
+    const edges = useMemo(() => staticEdges, []);
+
+    const nodes = useMemo(() => {
+        if (!people || people.length === 0) return [];
+
+        const getPerson = (id: string): Person | undefined => {
+            return people.find((p) => p.id === id);
+        };
+
+        const createPersonNode = (
+            id: string,
+            x: number,
+            y: number
+        ): FamilyPersonNodeType | null => {
+            const p = getPerson(id);
+            if (!p) return null;
+            return {
+                id,
+                type: "familyPerson",
+                position: { x, y },
+                data: {
+                    person: p,
+                },
+            };
+        };
+
+        const list = [
+            createPersonNode("hasan-cuhaci-dede", 250, -220),
+            createPersonNode("sukru-cuhaci", 250, 0),
+            createPersonNode("melek-cuhaci", 550, 0),
+
+            createPersonNode("mehmet-cuhaci-dede", 400, 220),
+            createPersonNode("hava-turkmen", 700, 220),
+
+            createPersonNode("kezban-cuhaci", 0, 460),
+            createPersonNode("hasan-cuhaci", 280, 460),
+            createPersonNode("birsen-yaman", 520, 460),
+            createPersonNode("kevser-cuhaci", 760, 460),
+            createPersonNode("huseyin-cuhaci", 1040, 460),
+            createPersonNode("habibe-demir", 1280, 460),
+
+            createPersonNode("burak-cuhaci", 160, 720),
+            createPersonNode("beyza-cuhaci", 360, 720),
+            createPersonNode("sena-cuhaci", 560, 720),
+
+            createPersonNode("ravza-nur-cuhaci", 920, 720),
+            createPersonNode("mehmet-cuhaci-cocuk", 1120, 720),
+            createPersonNode("semanur-cuhaci", 1320, 720),
+        ];
+
+        return list.filter((n): n is FamilyPersonNodeType => n !== null);
+    }, [people]);
+
+    if (loading && people.length === 0) {
+        return (
+            <main className="family-tree-page">
+                <section className="family-tree-header">
+                    <span>Soy Ağacı</span>
+                    <h1>CİLE Soyu</h1>
+                    <p>Soy ağacı verileri yükleniyor...</p>
+                </section>
+            </main>
+        );
+    }
+
+    if (error && people.length === 0) {
+        return (
+            <main className="family-tree-page">
+                <section className="family-tree-header">
+                    <span>Soy Ağacı</span>
+                    <h1>CİLE Soyu</h1>
+                    <p style={{ color: "#e74c3c" }}>Veriler yüklenirken hata oluştu: {error.message}</p>
+                </section>
+            </main>
+        );
+    }
+
     return (
         <main className="family-tree-page">
             <section className="family-tree-header">
